@@ -100,8 +100,8 @@ class CameraManager(
         if (this::cameraProvider.isInitialized) {
             cameraProvider.unbindAll()
             stopped = true
-            super.onPause(owner)
         }
+        super.onPause(owner)
     }
 
     override fun onResume(owner: LifecycleOwner) {
