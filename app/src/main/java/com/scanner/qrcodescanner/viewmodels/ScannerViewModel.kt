@@ -10,7 +10,7 @@ import com.scanner.qrcodescanner.scanner.CameraManager
 import com.scanner.qrcodescanner.scanner.ScannerViewState
 
 class ScannerViewModel : ViewModel() {
-    private lateinit var qrCodeManager: CameraManager
+    private lateinit var cameraManager: CameraManager
 
     /**
      * Initialize Camera Manager class.
@@ -20,13 +20,14 @@ class ScannerViewModel : ViewModel() {
         context: Context,
         previewView: PreviewView
     ): LiveData<ScannerViewState<String>> {
-        qrCodeManager = CameraManager(
-            owner = viewLifecycleOwner, context = context,
+        cameraManager = CameraManager(
+            owner = viewLifecycleOwner,
+            context = context,
             viewPreview = previewView,
             lensFacing = CameraSelector.LENS_FACING_BACK,
             showHideFlashIcon = {}
         )
 
-        return qrCodeManager.scanResult
+        return cameraManager.scanResult
     }
 }
